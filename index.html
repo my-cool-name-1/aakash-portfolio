@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aakash Yadav | Creator, Video Editor & Growth Strategist</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#090A0F',
+              card: '#121520',
+              border: '#1F2436',
+              cyan: '#00F0FF',
+              purple: '#8B5CF6',
+              violet: '#6366F1',
+              neon: '#06b6d4',
+            }
+          },
+          animation: {
+            'glow-pulse': 'glow 4s ease-in-out infinite alternate',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            glow: {
+              '0%': { opacity: '0.3', transform: 'scale(1)' },
+              '100%': { opacity: '0.7', transform: 'scale(1.08)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090A0F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2436;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8B5CF6;
+    }
+
+    .glass {
+      background: rgba(18, 21, 32, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .neon-border {
+      position: relative;
+    }
+    .neon-border::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(90deg, #00F0FF, #8B5CF6);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0.25;
+      transition: opacity 0.3s ease;
+    }
+    .neon-border:hover::after {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-200 font-sans selection:bg-brand-purple selection:text-white antialiased overflow-x-hidden min-h-screen">
+
+  <!-- Ambient Glow Lights -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-brand-cyan/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-glow-pulse"></div>
+  <div class="fixed top-1/3 right-10 w-[600px] h-[600px] bg-brand-purple/15 rounded-full blur-[160px] pointer-events-none -z-10 animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-brand-border/80 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-purple to-pink-500 p-[2px] transition-transform duration-300 group-hover:scale-105">
+            <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center font-display font-extrabold text-lg text-white">
+              AY
+            </div>
+          </div>
+          <div>
+            <span class="font-display font-bold text-xl tracking-tight text-white block">Aakash Yadav</span>
+            <span class="text-[10px] font-medium tracking-widest uppercase text-brand-cyan block">Creator & Strategist</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#about" class="hover:text-brand-cyan transition-colors">About</a>
+          <a href="#services" class="hover:text-brand-cyan transition-colors">Services</a>
+          <a href="#portfolio" class="hover:text-brand-cyan transition-colors">Showcase</a>
+          <a href="#calculator" class="hover:text-brand-cyan transition-colors">Quote Estimator</a>
+          <a href="#testimonials" class="hover:text-brand-cyan transition-colors">Reviews</a>
+          <a href="#contact" class="hover:text-brand-cyan transition-colors">Contact</a>
+        </nav>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold text-white bg-gradient-to-r from-brand-cyan to-brand-purple hover:opacity-90 shadow-lg shadow-brand-purple/20 transition-all duration-200 active:scale-95">
+            <span>Let's Collaborate</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <button id="mobileMenuBtn" aria-label="Toggle navigation" class="md:hidden p-2.5 rounded-xl bg-brand-card border border-brand-border text-slate-300 hover:text-white">
+            <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden glass border-b border-brand-border px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col space-y-4 text-base font-medium">
+        <a href="#about" class="mobile-link text-slate-300 hover:text-brand-cyan">About</a>
+        <a href="#services" class="mobile-link text-slate-300 hover:text-brand-cyan">Services</a>
+        <a href="#portfolio" class="mobile-link text-slate-300 hover:text-brand-cyan">Showcase</a>
+        <a href="#calculator" class="mobile-link text-slate-300 hover:text-brand-cyan">Quote Estimator</a>
+        <a href="#testimonials" class="mobile-link text-slate-300 hover:text-brand-cyan">Reviews</a>
+        <a href="#contact" class="mobile-link text-slate-300 hover:text-brand-cyan">Contact</a>
+        <a href="#contact" class="mobile-link w-full text-center py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-purple text-white font-semibold text-sm">
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card/90 border border-brand-cyan/30 text-xs font-semibold text-brand-cyan">
+              <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
+              Available for Freelance & Channel Scaling
+            </div>
+            
+            <h1 class="font-display text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+              Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-purple-300 to-brand-purple">Viral Stories</span> That Convert.
+            </h1>
+
+            <!-- Animated Changing Tagline -->
+            <div class="h-10 sm:h-12 flex items-center justify-center lg:justify-start">
+              <span class="text-lg sm:text-2xl text-slate-300 font-normal">I specialize in&nbsp;</span>
+              <span id="typewriter" class="text-lg sm:text-2xl font-bold text-brand-cyan border-b-2 border-brand-cyan tracking-wide"></span>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              Hi, I'm <strong class="text-white font-semibold">Aakash Yadav</strong>. I transform raw footages and creative ideas into hyper-engaging viral reels, YouTube shorts, and strategic content pipelines that drive millions of organic views and revenue.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+              <a href="#portfolio" class="px-8 py-3.5 rounded-full bg-white text-brand-dark font-semibold text-sm hover:bg-slate-200 transition duration-200 flex items-center gap-2 shadow-xl shadow-white/10 hover:translate-y-[-2px]">
+                <i data-lucide="play-circle" class="w-5 h-5 text-brand-purple"></i>
+                Explore Work
+              </a>
+              <a href="#calculator" class="px-7 py-3.5 rounded-full bg-brand-card border border-brand-border text-slate-200 font-semibold text-sm hover:border-brand-purple transition duration-200 flex items-center gap-2 hover:bg-brand-border/40">
+                <i data-lucide="calculator" class="w-4 h-4 text-brand-cyan"></i>
+                Estimate Budget
+              </a>
+            </div>
+
+            <!-- Social badges -->
+            <div class="pt-6 flex items-center justify-center lg:justify-start gap-6 text-slate-400 text-sm">
+              <span class="text-xs uppercase tracking-wider text-slate-500 font-bold">Connect:</span>
+              <a href="https://youtube.com" target="_blank" rel="noopener" class="hover:text-red-500 transition-colors flex items-center gap-1.5"><i data-lucide="youtube" class="w-4 h-4"></i> YouTube</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-pink-400 transition-colors flex items-center gap-1.5"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5"><i data-lucide="twitter" class="w-4 h-4"></i> X/Twitter</a>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Card / Visual -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <!-- Glow backdrop -->
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-cyan via-purple-600 to-brand-purple rounded-3xl blur-xl opacity-60 animate-tilt"></div>
+              
+              <div class="relative bg-brand-card border border-brand-border rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+                <!-- Inner Decorative Pill -->
+                <div class="flex items-center justify-between pb-6 border-b border-brand-border/80">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center shadow-lg">
+                      <i data-lucide="video" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold text-white text-base">Aakash Studio Pro</h4>
+                      <p class="text-xs text-brand-cyan">Active Creator Status</p>
+                    </div>
+                  </div>
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    ● Live
+                  </span>
+                </div>
+
+                <!-- Metrics Preview Card -->
+                <div class="py-6 space-y-4">
+                  <div class="bg-brand-dark/80 rounded-2xl p-4 border border-brand-border flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="p-2 rounded-xl bg-purple-500/10 text-purple-400"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                      <div>
+                        <div class="text-xs text-slate-400">Average Watch Time</div>
+                        <div class="text-lg font-bold text-white">+84.6% Viral Spike</div>
+                      </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-xs">+12.4x</span>
+                  </div>
+
+                  <div class="bg-brand-dark/80 rounded-2xl p-4 border border-brand-border flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="p-2 rounded-xl bg-cyan-500/10 text-brand-cyan"><i data-lucide="eye" class="w-5 h-5"></i></div>
+                      <div>
+                        <div class="text-xs text-slate-400">Total Audience Reached</div>
+                        <div class="text-lg font-bold text-white">10.4 Million Views</div>
+                      </div>
+                    </div>
+                    <span class="text-brand-cyan font-bold text-xs">Verified</span>
+                  </div>
+                </div>
+
+                <!-- Audio Wave Visualizer Simulation -->
+                <div class="pt-2">
+                  <div class="text-xs font-medium text-slate-400 mb-2 flex items-center justify-between">
+                    <span>Sound Design & Hook Retention Rate</span>
+                    <span class="text-brand-purple font-mono">99.2%</span>
+                  </div>
+                  <div class="flex items-end justify-between h-14 bg-brand-dark/90 rounded-xl p-3 border border-brand-border gap-1">
+                    <div class="w-full bg-cyan-400/80 rounded-t h-4 animate-pulse"></div>
+                    <div class="w-full bg-cyan-400/80 rounded-t h-8 animate-pulse" style="animation-delay: 150ms;"></div>
+                    <div class="w-full bg-brand-purple rounded-t h-12 animate-pulse" style="animation-delay: 300ms;"></div>
+                    <div class="w-full bg-cyan-400/80 rounded-t h-7 animate-pulse" style="animation-delay: 100ms;"></div>
+                    <div class="w-full bg-brand-purple rounded-t h-10 animate-pulse" style="animation-delay: 250ms;"></div>
+                    <div class="w-full bg-pink-500 rounded-t h-11 animate-pulse" style="animation-delay: 400ms;"></div>
+                    <div class="w-full bg-cyan-400/80 rounded-t h-6 animate-pulse" style="animation-delay: 180ms;"></div>
+                    <div class="w-full bg-brand-purple rounded-t h-9 animate-pulse" style="animation-delay: 320ms;"></div>
+                    <div class="w-full bg-cyan-400 rounded-t h-12 animate-pulse" style="animation-delay: 210ms;"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Counter Bar -->
+    <section class="border-y border-brand-border bg-brand-card/40 py-12 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-brand-border/60">
+          
+          <div class="pt-4 lg:pt-0">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-white">
+              <span class="counter" data-target="350">0</span>K+
+            </div>
+            <p class="text-sm text-slate-400 mt-2 font-medium">Subscribers Generated</p>
+          </div>
+
+          <div class="pt-4 lg:pt-0">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-blue-400">
+              <span class="counter" data-target="15">0</span>M+
+            </div>
+            <p class="text-sm text-slate-400 mt-2 font-medium">Organic Video Views</p>
+          </div>
+
+          <div class="pt-4 lg:pt-0">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-white">
+              <span class="counter" data-target="180">0</span>+
+            </div>
+            <p class="text-sm text-slate-400 mt-2 font-medium">High Impact Projects</p>
+          </div>
+
+          <div class="pt-4 lg:pt-0">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+              <span class="counter" data-target="99">0</span>%
+            </div>
+            <p class="text-sm text-slate-400 mt-2 font-medium">Client Retention & Satisfaction</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Skills Interactive Grid -->
+    <section id="services" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-brand-cyan">What I Deliver</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            High Retention Content & Strategy Built for Algorithms
+          </h2>
+          <p class="text-slate-400 text-base">
+            Every video is engineered with hook optimization, visual pacing, audio dynamics, and conversion-focused storytelling.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Service 1 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-brand-cyan/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-brand-cyan flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="scissors" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">Short-Form Video Editing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Fast-paced editing tailored for Instagram Reels, YouTube Shorts, and TikTok. Seamless transitions, kinetic typography, and b-roll synchronization.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> 3-Second Retention Hooks</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> Dynamic Subtitles & SFX</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> Color Grading & Motion Graphics</li>
+            </ul>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-brand-purple/60 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="mic" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">AI Audio & Voice Dubbing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Crystal-clear studio audio conditioning, multilingual dubbing flows, and AI voice design for engaging faceless video formats.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Multi-Voice Character Direction</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Ambient Soundscapes & Beat Sync</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Podcast Audio Enhancement</li>
+            </ul>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-pink-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="sparkles" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">High CTR Thumbnails</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              High-contrast, psychologically tuned thumbnails designed to maximize Click-Through Rates (CTR) across competitive niches.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400"></i> Expression Isolation & 3D Lighting</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400"></i> A/B Testing Variations</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-pink-400"></i> YouTube Guidelines & Retina Ready</li>
+            </ul>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-brand-cyan/60 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-brand-cyan flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">Channel Growth & Strategy</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              End-to-end channel audits, SEO metadata ranking, release cadence scheduling, and monetization pipeline setup.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> Keyword & Competitor Scraping</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> Title & Description Optimization</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan"></i> Audience Retention Diagnostics</li>
+            </ul>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-brand-purple/60 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="layout" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">Long-Form YouTube Cutdowns</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Transforming full podcasts, gaming streams, and webinar recordings into dozens of viral micro-clips with zero hassle.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Smart Moment Spotting</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Multi-Platform Aspect Formats (9:16, 1:1)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Batch Delivery Options</li>
+            </ul>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="group bg-brand-card/70 border border-brand-border rounded-2xl p-8 hover:border-emerald-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 relative overflow-hidden">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="dollar-sign" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-3">Sponsorships & Brand Deals</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Integration of sponsor segments, dedicated promo clips, brand pitch decks, and media kit preparation for creators.
+            </p>
+            <ul class="text-xs space-y-2 text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> High-Converting Brand Segments</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Media Kit & Case Study PDF</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Direct Affiliate Call-To-Actions</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Showcase with Tabs -->
+    <section id="portfolio" class="py-24 bg-brand-card/30 border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <span class="text-xs uppercase font-extrabold tracking-widest text-brand-purple">Featured Work</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Creator Showcase & Case Studies</h2>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-brand-card border border-brand-border text-sm">
+            <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all bg-gradient-to-r from-brand-cyan to-brand-purple text-white" data-filter="all">
+              All Projects
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide text-slate-400 hover:text-white transition-all" data-filter="shorts">
+              Shorts & Reels
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide text-slate-400 hover:text-white transition-all" data-filter="graphics">
+              Thumbnails
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide text-slate-400 hover:text-white transition-all" data-filter="promos">
+              Brand Deals
+            </button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioContainer">
+          
+          <!-- Item 1 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300" data-category="shorts">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Tech Reel Editing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-brand-cyan text-brand-dark uppercase">1.8M Views</span>
+              <button onclick="openModal('Futuristic AI Breakdown Reel', 'Paced video with cinematic sound design, motion-tracked text callouts, and multi-track audio cleanup that achieved an 88% completion rate.', 'Shorts & Reels', '1.8M Views', '94% Retention')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-brand-cyan uppercase">YouTube Shorts</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-brand-cyan transition-colors">Futuristic AI Tech Explainer</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Kinetic subtitles, 3D text overlays, and AI voice synchronization.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>Pacing: Fast / 45s</span>
+                <span class="text-brand-purple">Viral Hook</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-purple/60 transition-all duration-300" data-category="graphics">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Thumbnail Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-brand-purple text-white uppercase">14.2% CTR</span>
+              <button onclick="openModal('Finance Channel Mega Thumbnail', 'High-contrast thumbnail crafted for personal finance creator. Designed with expression masking, vibrant depth lighting, and text readability on mobile devices.', 'Thumbnails', '14.2% CTR', '550K Clicks')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-brand-purple uppercase">Graphic Design</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-brand-purple transition-colors">Finance Authority Thumbnail Suite</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Psychology-backed color framing and face lighting for maximum clicks.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>CTR Uplift: +6.3%</span>
+                <span class="text-brand-cyan">Photoshop + AI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-pink-500/60 transition-all duration-300" data-category="shorts">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80" alt="Gym Motivation Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-pink-500 text-white uppercase">3.2M Views</span>
+              <button onclick="openModal('Fitness Brand Viral Edit', 'Explosive rhythm editing aligned to bass drops, custom sound FX risers, and punch-in transitions generating 45,000+ shares.', 'Shorts & Reels', '3.2M Views', '98% Retention')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-pink-400 uppercase">Viral Reels</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-pink-400 transition-colors">High Energy Fitness Campaign</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Bass-boosted sound design, beat-matched transitions, and speed ramping.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>Shares: 45K+</span>
+                <span class="text-brand-purple">Instagram / TikTok</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-emerald-500/60 transition-all duration-300" data-category="promos">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Sponsor Promo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500 text-white uppercase">$14K Revenue</span>
+              <button onclick="openModal('SaaS Product Launch Sponsor Segment', 'Dedicated 60-second in-video sponsorship with custom 2D screen mocks and tracked annotations delivering a 4.1% conversion rate.', 'Brand Deals', '600K Views', '4.1% CTR to Signups')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-emerald-400 uppercase">Brand Integration</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-emerald-400 transition-colors">SaaS Software Sponsorship Segment</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Seamless mid-roll integration that preserved 92% retention through the sponsor spot.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>Retention: 92%</span>
+                <span class="text-emerald-400">Direct Sales</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300" data-category="shorts">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Faceless Channel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-brand-cyan text-brand-dark uppercase">950K Views</span>
+              <button onclick="openModal('Mystery Story Faceless Short', 'Complete AI voice cloning pipeline with sound design and multi-layered atmospheric B-roll that grew a brand new channel to monetization in 45 days.', 'Shorts & Reels', '950K Views', 'Monetized')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-brand-cyan uppercase">Faceless Automation</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-brand-cyan transition-colors">Dark Mystery Documentary Series</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Multi-character voice narration, sound fx cues, and stock mashup editing.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>Pacing: Suspense</span>
+                <span class="text-brand-purple">Automated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="portfolio-card group bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-purple/60 transition-all duration-300" data-category="graphics">
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Podcast Branding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-brand-purple text-white uppercase">Complete Kit</span>
+              <button onclick="openModal('Creator Brand Identity Kit', 'Full channel rebrand including YouTube banner, avatar, intro lower thirds, sound identity, and social templates.', 'Thumbnails', '100% Custom', 'Consistent Across 4 Platforms')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-brand-dark/60 backdrop-blur-sm transition-opacity">
+                <span class="p-3.5 rounded-full bg-white text-brand-dark shadow-xl"><i data-lucide="maximize-2" class="w-5 h-5"></i></span>
+              </button>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-brand-purple uppercase">Brand Kit</span>
+              <h3 class="text-lg font-bold text-white mt-1 group-hover:text-brand-purple transition-colors">Streamer & Creator Brand Identity</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Cohesive banners, overlays, watermarks, and typography systems.</p>
+              <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-medium">
+                <span>Delivered: 12 Assets</span>
+                <span class="text-brand-cyan">Vector + PSD</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Project Cost Estimator Tool -->
+    <section id="calculator" class="py-24 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-brand-cyan">Transparent Pricing</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Interactive Project Estimator</h2>
+          <p class="text-slate-400 text-sm max-w-xl mx-auto">
+            Select your project requirements below to calculate an instant estimated package cost for your content strategy.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+          
+          <div class="space-y-8">
+            
+            <!-- Type of Project -->
+            <div>
+              <label class="block text-sm font-semibold text-white mb-3">1. Select Content Format</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer border border-brand-border rounded-xl p-4 flex flex-col items-center justify-center text-center hover:border-brand-cyan transition-all has-[:checked]:border-brand-cyan has-[:checked]:bg-brand-cyan/10">
+                  <input type="radio" name="format" value="120" class="sr-only" checked onchange="calculateEstimate()">
+                  <i data-lucide="smartphone" class="w-6 h-6 text-brand-cyan mb-2"></i>
+                  <span class="text-sm font-bold text-white">Shorts / Reels</span>
+                  <span class="text-xs text-slate-400 mt-1">9:16 Vertical Viral Cut</span>
+                </label>
+
+                <label class="cursor-pointer border border-brand-border rounded-xl p-4 flex flex-col items-center justify-center text-center hover:border-brand-purple transition-all has-[:checked]:border-brand-purple has-[:checked]:bg-brand-purple/10">
+                  <input type="radio" name="format" value="260" class="sr-only" onchange="calculateEstimate()">
+                  <i data-lucide="tv" class="w-6 h-6 text-brand-purple mb-2"></i>
+                  <span class="text-sm font-bold text-white">Long-Form Video</span>
+                  <span class="text-xs text-slate-400 mt-1">8-15 Min YouTube Edit</span>
+                </label>
+
+                <label class="cursor-pointer border border-brand-border rounded-xl p-4 flex flex-col items-center justify-center text-center hover:border-pink-500 transition-all has-[:checked]:border-pink-500 has-[:checked]:bg-pink-500/10">
+                  <input type="radio" name="format" value="480" class="sr-only" onchange="calculateEstimate()">
+                  <i data-lucide="layers" class="w-6 h-6 text-pink-400 mb-2"></i>
+                  <span class="text-sm font-bold text-white">Monthly Retainer</span>
+                  <span class="text-xs text-slate-400 mt-1">Full Channel Growth</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Volume Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="videoVolume" class="text-sm font-semibold text-white">2. Number of Videos / Deliverables</label>
+                <span id="volumeDisplay" class="text-brand-cyan font-bold text-base font-mono">4 Videos</span>
+              </div>
+              <input type="range" id="videoVolume" min="1" max="20" value="4" class="w-full h-2 bg-brand-dark rounded-lg appearance-none cursor-pointer accent-brand-cyan" oninput="calculateEstimate()">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>1 Video</span>
+                <span>10 Videos</span>
+                <span>20+ Bulk</span>
+              </div>
+            </div>
+
+            <!-- Add-ons Checkboxes -->
+            <div>
+              <label class="block text-sm font-semibold text-white mb-3">3. High-Performance Add-ons</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                
+                <label class="flex items-center gap-3 p-3.5 rounded-xl border border-brand-border hover:border-slate-600 cursor-pointer bg-brand-dark/50">
+                  <input type="checkbox" id="addonThumbnail" value="40" class="w-4 h-4 rounded text-brand-cyan focus:ring-brand-cyan" onchange="calculateEstimate()">
+                  <span class="text-slate-300">Custom 4K Thumbnail Design</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl border border-brand-border hover:border-slate-600 cursor-pointer bg-brand-dark/50">
+                  <input type="checkbox" id="addonAudio" value="50" class="w-4 h-4 rounded text-brand-purple focus:ring-brand-purple" onchange="calculateEstimate()">
+                  <span class="text-slate-300">AI Voice Dubbing & Sound Design</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl border border-brand-border hover:border-slate-600 cursor-pointer bg-brand-dark/50">
+                  <input type="checkbox" id="addonSeo" value="60" class="w-4 h-4 rounded text-brand-cyan focus:ring-brand-cyan" onchange="calculateEstimate()">
+                  <span class="text-slate-300">Viral SEO Title & Tag Research</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl border border-brand-border hover:border-slate-600 cursor-pointer bg-brand-dark/50">
+                  <input type="checkbox" id="addonRush" value="80" class="w-4 h-4 rounded text-pink-400 focus:ring-pink-400" onchange="calculateEstimate()">
+                  <span class="text-slate-300">24-Hour Express Turnaround</span>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- Price Output Box -->
+            <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-6 bg-brand-dark/90 p-6 rounded-2xl border">
+              <div>
+                <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block">Estimated Project Range</span>
+                <div class="text-3xl sm:text-4xl font-extrabold text-white mt-1 flex items-baseline gap-2">
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple" id="estimatedPrice">$480 - $550</span>
+                  <span class="text-xs text-slate-400 font-normal">/ estimated</span>
+                </div>
+              </div>
+              <button onclick="bookWithEstimate()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-cyan to-brand-purple text-white font-bold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-purple/20">
+                <span>Book This Package</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials / Milestones Timeline -->
+    <section id="testimonials" class="py-24 bg-brand-card/20 border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-brand-purple">Social Proof</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">What Creators & Clients Say</h2>
+          <p class="text-slate-400 text-sm">
+            Trusted by creators across YouTube, Instagram, and top media brands.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Testimonial 1 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-2xl relative">
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+              "Aakash completely revived our Instagram page. His edits took our average reel views from 5,000 to over 300,000 within 4 weeks. His grasp of pacing and sound design is top-tier."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-brand-cyan flex items-center justify-center font-bold text-sm">
+                RS
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Rahul Sharma</h4>
+                <p class="text-xs text-slate-400">Tech Content Creator (180K Subs)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-2xl relative">
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+              "The speed and attention to detail are rare. When we needed high-converting sponsor cutouts for a major marketing campaign, Aakash delivered ahead of schedule with zero revisions needed."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-500/20 text-brand-purple flex items-center justify-center font-bold text-sm">
+                NK
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Neha Kapoor</h4>
+                <p class="text-xs text-slate-400">Marketing Lead, Nexus Digital</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-brand-card border border-brand-border p-8 rounded-2xl relative">
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+              "Working with Aakash helped me scale two faceless channels. He handled the audio cleaning, voice pacing, and dynamic captions effortlessly. Best editor I've partnered with!"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-sm">
+                AV
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Amit Verma</h4>
+                <p class="text-xs text-slate-400">Channel Operator & Investor</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Milestones Timeline Strip -->
+        <div class="mt-20 border border-brand-border rounded-3xl p-8 bg-brand-card/40">
+          <h3 class="font-display text-xl font-bold text-white text-center mb-8">Journey Milestones</h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            
+            <div class="p-4 rounded-xl bg-brand-dark/50 border border-brand-border">
+              <span class="text-xs font-bold text-brand-cyan">YEAR 1</span>
+              <h4 class="text-base font-bold text-white mt-1">First 1M Views</h4>
+              <p class="text-xs text-slate-400 mt-1">Mastered retention-first editing & audio dynamics.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-brand-dark/50 border border-brand-border">
+              <span class="text-xs font-bold text-brand-purple">YEAR 2</span>
+              <h4 class="text-base font-bold text-white mt-1">Multi-Channel Growth</h4>
+              <p class="text-xs text-slate-400 mt-1">Partnered with 10+ creators to scale subscriber bases.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-brand-dark/50 border border-brand-border">
+              <span class="text-xs font-bold text-pink-400">YEAR 3</span>
+              <h4 class="text-base font-bold text-white mt-1">AI & Workflow Lead</h4>
+              <p class="text-xs text-slate-400 mt-1">Pioneered custom voice-clone & dubbing pipelines.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-brand-dark/50 border border-brand-border">
+              <span class="text-xs font-bold text-emerald-400">PRESENT</span>
+              <h4 class="text-base font-bold text-white mt-1">10M+ Total Impact</h4>
+              <p class="text-xs text-slate-400 mt-1">Full-service digital media production for high-tier creators.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Info -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-brand-cyan">Get In Touch</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Let’s Make Your Next Video Go Viral</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Whether you need consistent monthly reels, high-converting thumbnail packages, or complete channel management, send a message and let's discuss your targets.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+                <div class="p-3 rounded-xl bg-cyan-500/10 text-brand-cyan">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 block">Direct Email</span>
+                  <a href="mailto:contact@aakashyadav.creator" class="text-white font-medium hover:text-brand-cyan transition-colors text-sm">contact@aakashyadav.creator</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+                <div class="p-3 rounded-xl bg-purple-500/10 text-brand-purple">
+                  <i data-lucide="message-square" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 block">Fast Response Channel</span>
+                  <span class="text-white font-medium text-sm">WhatsApp & Telegram: Available on request</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+                <div class="p-3 rounded-xl bg-pink-500/10 text-pink-400">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 block">Turnaround Time</span>
+                  <span class="text-white font-medium text-sm">Average 24 - 48 Hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Form -->
+          <div class="lg:col-span-7">
+            <div class="bg-brand-card border border-brand-border rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+              <h3 class="font-display text-xl font-bold text-white mb-6">Send a Project Brief</h3>
+              
+              <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Your Name *</label>
+                    <input type="text" id="senderName" required placeholder="Aman Sharma" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Email Address *</label>
+                    <input type="email" id="senderEmail" required placeholder="aman@example.com" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Channel / Social Profile Link</label>
+                    <input type="url" id="senderLink" placeholder="https://youtube.com/@channel" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Service Required</label>
+                    <select id="senderService" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan transition">
+                      <option value="Short-Form Video Editing">Short-Form Video Editing (Reels/Shorts)</option>
+                      <option value="Full YouTube Editing">Full YouTube Video Editing</option>
+                      <option value="Thumbnails & Graphics">High CTR Thumbnails & Branding</option>
+                      <option value="AI Voice & Dubbing">AI Voice Cloning & Multilingual Dubbing</option>
+                      <option value="Channel Strategy & Management">Monthly Growth Retainer</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-2">Project Details & Goals *</label>
+                  <textarea id="senderMessage" required rows="4" placeholder="Tell me about your channel niche, reference videos you like, and turnaround requirements..." class="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-purple to-pink-500 text-white font-bold text-sm tracking-wide hover:opacity-95 transition-all shadow-lg shadow-brand-purple/20 flex items-center justify-center gap-2">
+                  <span id="btnText">Send Inquiry Now</span>
+                  <i data-lucide="send" id="btnIcon" class="w-4 h-4"></i>
+                </button>
+              </form>
+
+              <!-- Working Toast Message -->
+              <div id="toastMessage" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                <div>
+                  <p class="font-bold">Message sent successfully!</p>
+                  <p class="text-xs text-emerald-400/80">Thanks for reaching out! Aakash will get back to you within 24 hours.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Modal Preview -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="bg-brand-card border border-brand-border rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-5 right-5 p-2 rounded-full bg-brand-dark text-slate-400 hover:text-white border border-brand-border">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <span id="modalCategory" class="text-xs uppercase font-extrabold text-brand-cyan tracking-wider">Category</span>
+      <h3 id="modalTitle" class="text-2xl font-display font-bold text-white mt-1 mb-4">Project Title</h3>
+      <p id="modalDesc" class="text-slate-300 text-sm leading-relaxed mb-6">Description text goes here.</p>
+      
+      <div class="grid grid-cols-2 gap-4 bg-brand-dark p-4 rounded-2xl border border-brand-border mb-6">
+        <div>
+          <span class="text-[11px] text-slate-500 uppercase font-semibold block">Reach / Result</span>
+          <span id="modalMetric1" class="text-base font-bold text-brand-cyan">1.2M Views</span>
+        </div>
+        <div>
+          <span class="text-[11px] text-slate-500 uppercase font-semibold block">Performance</span>
+          <span id="modalMetric2" class="text-base font-bold text-brand-purple">92% Retention</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="flex-1 py-3 rounded-xl bg-brand-cyan text-brand-dark font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition">
+          Request Similar Work
+        </button>
+        <button onclick="closeModal()" class="px-5 py-3 rounded-xl bg-brand-dark border border-brand-border text-slate-300 font-semibold text-xs hover:text-white">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-brand-dark py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-cyan to-brand-purple flex items-center justify-center font-bold text-white text-xs">
+            AY
+          </div>
+          <span class="text-white font-bold text-sm tracking-tight">Aakash Yadav</span>
+          <span class="text-xs text-slate-500">| Digital Media Producer</span>
+        </div>
+
+        <p class="text-xs text-slate-500 text-center">
+          &copy; <span id="currentYear"></span> Aakash Yadav. All rights reserved. High retention content architecture.
+        </p>
+
+        <div class="flex items-center gap-4 text-slate-400 text-sm">
+          <a href="#home" class="hover:text-brand-cyan transition-colors">Back to top ↑</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Interactivity -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Typewriter effect
+    const phrases = [
+      "Viral YouTube Shorts",
+      "Dynamic Instagram Reels",
+      "High CTR Thumbnails",
+      "AI Voice Narration & Dubs",
+      "Channel Growth Strategy"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeEffect() {
+      const current = phrases[phraseIndex];
+      if (isDeleting) {
+        typewriterElement.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === current.length) {
+        speed = 1800;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 300;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
+
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Portfolio Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active button style
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-gradient-to-r', 'from-brand-cyan', 'to-brand-purple', 'text-white');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.add('active', 'bg-gradient-to-r', 'from-brand-cyan', 'to-brand-purple', 'text-white');
+        btn.classList.remove('text-slate-400');
+
+        const filter = btn.getAttribute('data-filter');
+        portfolioCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    let hasAnimated = false;
+
+    function runCounters() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const increment = target / 40;
+
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCount, 30);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const statsSection = document.querySelector('.counter');
+      if (statsSection) {
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && !hasAnimated) {
+          hasAnimated = true;
+          runCounters();
+        }
+      }
+    });
+
+    // Cost Estimator Calculator
+    function calculateEstimate() {
+      const formatRadio = document.querySelector('input[name="format"]:checked');
+      const basePrice = formatRadio ? parseInt(formatRadio.value) : 120;
+      const volume = parseInt(document.getElementById('videoVolume').value);
+      
+      document.getElementById('volumeDisplay').textContent = `${volume} ${volume === 1 ? 'Video' : 'Videos'}`;
+
+      let addonTotal = 0;
+      if (document.getElementById('addonThumbnail').checked) addonTotal += 40 * volume;
+      if (document.getElementById('addonAudio').checked) addonTotal += 50 * volume;
+      if (document.getElementById('addonSeo').checked) addonTotal += 60;
+      if (document.getElementById('addonRush').checked) addonTotal += 80;
+
+      // Volume bulk discount logic
+      let discountMultiplier = 1;
+      if (volume >= 5 && volume < 10) discountMultiplier = 0.9; // 10% off
+      if (volume >= 10) discountMultiplier = 0.82; // 18% off
+
+      const baseTotal = (basePrice * volume * discountMultiplier) + addonTotal;
+      const minPrice = Math.round(baseTotal);
+      const maxPrice = Math.round(baseTotal * 1.15);
+
+      document.getElementById('estimatedPrice').textContent = `$${minPrice} - $${maxPrice}`;
+    }
+
+    function bookWithEstimate() {
+      const priceText = document.getElementById('estimatedPrice').textContent;
+      const volume = document.getElementById('videoVolume').value;
+      const format = document.querySelector('input[name="format"]:checked').nextElementSibling.nextElementSibling.textContent;
+      
+      const messageField = document.getElementById('senderMessage');
+      messageField.value = `Hi Aakash, I calculated an estimate on your site: \n- Format: ${format}\n- Volume: ${volume} videos\n- Estimated budget: ${priceText}\n\nI would like to start this project!`;
+      
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal Details Logic
+    function openModal(title, desc, category, m1, m2) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      document.getElementById('modalCategory').textContent = category;
+      document.getElementById('modalMetric1').textContent = m1;
+      document.getElementById('modalMetric2').textContent = m2;
+      document.getElementById('projectModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').classList.add('hidden');
+    }
+
+    // Contact Form handling with Toast
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const toast = document.getElementById('toastMessage');
+
+      btnText.textContent = 'Transmitting Message...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        btnText.textContent = 'Inquiry Sent!';
+        toast.classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+        
+        setTimeout(() => {
+          btnText.textContent = 'Send Inquiry Now';
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 700);
+    }
+  </script>
+</body>
+</html>
